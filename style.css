@@ -1,0 +1,361 @@
+body {
+    background-color: #bce7e8;
+
+}
+/* Style to create a fluid image */
+img {
+    max-width: 100%
+    height : 30px;
+}
+
+#container {
+    width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+}
+/* Style for the header specifies top margin, background color, rounded corner and center aligned content*/
+header {
+    margin-top: 0.2em;
+    background-color: #48797a;
+    border-radius: 0.5em;
+    box-shadow: 12px 12px 12px #404040;
+    text-align: center;
+}
+nav {
+    font-family: Georgia, "Times New Roman" , serif;
+    font-size: 1.25em;
+    font-weight: bold;  
+    text-align: center;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border-top: 5px solid #FFFFFF;
+    border-bottom: 5px solid #FFFFFF;
+
+}
+main{
+    display: block;
+    font-family: Verdana, Ariel, sans-serif;
+    font-size: 1em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #FFFFFF ;
+    box-shadow: 12px 12px 12px #404040;
+}
+
+.hideIng {display: none}
+
+.printDates {
+    margin: 10px 0px 10px 0px;
+}
+.printDates label {
+    display: block;
+    text-align: left;
+    margin: 3px;
+    margin-top: 12px;
+    clear: left;
+    
+}
+.printDates input {
+    height: 30px;
+    width: 93%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    align-self: center;
+
+}
+
+.printDates input  [type=checkbox] {
+    height: 80px;
+    width: 93%;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+table{
+    width: 70%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    text-align: left;
+}
+tr {
+    border-bottom: 1px solid #cbcbcb;
+}
+th, td{
+    border: none;
+    height: 30px;
+    padding: 2px;
+}
+tr:hover {
+    background: #F5F5F5;
+}
+
+form {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    padding: 10px; 
+    border: 1px solid #bbbbbb; 
+    border-radius: 5px;
+}
+
+form ul {
+    list-style-type: none;
+}
+
+.buttonline {
+   
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 2em ;
+    
+}
+
+.buttonline li {
+    float: left;
+    margin-left: 1em;
+    margin-right: 1em;
+    height: 1em;
+    
+}
+.buttonline a {
+    text-decoration: none;
+    padding: 0.5em;
+    background: #5F9EA0;
+    color: white;
+    border-radius: 3px;
+    height: 5em;
+
+} 
+
+.col1{
+    clear: both;
+}
+
+.col2{
+    float: right;
+}
+
+
+ul {
+    list-style-type: none;
+
+}
+input, select {
+    display: block;
+    margin-bottom: 1em;
+}
+
+select {
+    height: 2em;
+    width : 8em ;
+}
+
+label {
+    display: block;
+}
+
+.editform label {
+    display: block;
+    width=20%
+}
+
+.editform input {
+    display: block;
+}
+
+.chkbx {
+    display: inline-block;
+}
+
+
+.input-group {
+    margin: 10px 0px 10px 0px;
+}
+.input-group label {
+    display: block;
+    text-align: left;
+    margin: 3px;
+}
+.input-group input, .input-group select {
+    height: 30px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    background: #5F9EA0;
+    border: none;
+    border-radius: 5px;
+}
+.linkbtn {
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    background: #5F9EA0;
+    border: none;
+    border-radius: 5px;
+}
+.edit_btn {
+    text-decoration: none;
+    padding: 2px 5px;
+    background: #5F9EA0;
+    color: white;
+    border-radius: 3px;
+}
+
+.del_btn {
+    text-decoration: none;
+    padding: 2px 5px;
+    color: white;
+    border-radius: 3px;
+    background: #800000;
+}
+.msg {
+    margin: 30px auto; 
+    padding: 10px; 
+    border-radius: 5px; 
+    color: #3c763d; 
+    background: #dff0d8; 
+    border: 1px solid #3c763d;
+    width: 50%;
+    text-align: center;
+}
+
+
+/* Style used in Recepie master to get entry fields on the same line */
+
+.col1{
+    width:100%;
+    display: block;
+}
+
+.col2{
+    width:100%;
+    display: block;
+}
+
+footer {
+    font-size: .70em;
+    text-align: center;
+    margin-top: 2em;
+}
+/*88888888888888888888888888888888888888888888888888888888*/
+/*   **********  TABLETS ******/
+/*888888888888888888888888888888888888888888888888888888888*/
+
+@media  only screen and (min-width: 468px) {
+
+    label {
+        float: left;
+        padding-right: 0.5em;
+        text-align: right; 
+        width: 8em ;
+    }
+
+table{
+    width: 90%;
+}
+
+.loginform {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.editform label {
+    display: block;
+}
+
+.editform input {
+    display: block;
+}
+
+}
+
+/*888888888888888888888888888888888888888888888888888888888*/
+/*   **********  LAPTOPS ******/
+/*888888888888888888888888888888888888888888888888888888888*/
+
+
+@media  only screen and (min-width: 700px) {
+
+body {
+    font-size: 13px;
+}
+#container {
+    width:90%;
+
+}
+table{
+    width: 95%;
+}
+
+form {
+    width: 90%;
+}
+
+form li {
+    display: inline;
+    float: left;
+    margin-right: 1%;
+    margin-left: 1%;
+    padding-right: 0;
+    padding-left: 0;
+
+}
+
+ul {
+    margin-left: auto; 
+    margin-right: auto;
+
+}
+
+.loginform {
+    width: 50%;
+}
+
+/* Style used in Recepie master to get entry fields on the same line */
+
+.col1{
+    width:50%;
+    float: left;
+}
+
+.col2{
+    width:50%;
+    float: right;
+}
+
+.editform input  {
+    float: left;
+    margin-left: 0 ;
+    margin-right: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 1.5em;
+
+}
+
+.editform label {
+    padding-left:  0;
+    padding-right: 0.5em;
+    float: left; 
+    width : max-content;
+    align-items: center;
+}
+
+
+}

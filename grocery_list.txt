@@ -1,0 +1,116 @@
+
+
+           ***************** 
+             Grocery List 
+           ***************** 
+
+ 2021-03-07                 2021-03-13
+
+================================= 
+Bulk Purchases - Check Inventory
+================================= 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+Store :  Indian Store 
+        Ginger Paste  2.00 bottles  
+        Ginger Paste  2.00 bottles  
+Coriander seeds (Akha Dhana)  1.00 packet  
+      Jeeru ( Cumin)  1.00 packet  
+         Daal - Toor 10.00 lbs  
+       Daal - Orange  6.00 lbs  
+         Daal - Urad  6.00 lbs  
+               Besan  4.00 lbs  
+        Daal - Chana  6.00 lbs  
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+Store :  Coscto 
+              Yogurt 12.00 lbs  
+               Sugar 10.00 lbs  
+              Butter  4.00 box  
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+Store :  Resturant Depot 
+            Tomatoes 25.00 pcs  
+            Tomatoes 35.00 pcs  
+            Tomatoes 30.00 pcs  
+              Onions 20.00 pcs  
+              Onions 30.00 pcs  
+              Onions 30.00 pcs  
+              Onions 30.00 pcs  
+        Coconut milk  1.00 big can  
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+Store :  Namaste Plaza 
+            Birishta  1.00 packets  
+            Birishta  6.00 packets  
+             Cashews  3.00 lbs  
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+Store :  Personal 
+Curry Leaves - Kari patta  2.00 packets  
+Curry Leaves - Kari patta  3.00 packets  
+Curry Leaves - Kari patta  5.00 packets  
+
+
+
+======================= 
+Store wise Purchases 
+======================= 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+Store :  Smart And Final 
+            Potatoes 15.00 lbs  
+ Fruit Cocktail Cans  5.00 big can  
+    Chowmein Noodles 20.00 packets  
+           Mushrooms  8.00 big box  
+    Shredded Cabbage 18.00 lbs  
+        Tomato Sauce  1.00 big tin  
+      Dark Soy Sauce  4.00 bottles  
+    Cream Style Corn  4.00 big can  
+    Lime Lemon Juice  1.00 bottles  
+                Milk  2.00 cans  
+       Half and Half 10.00 box  
+                Eggs 36.00 pcs  
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+Store :  Namaste Plaza 
+        Ginger Fresh  1.00 lb  
+  Garlic Fresh lasan  1.00 lbs  
+  Garlic Fresh lasan  1.00 lbs  
+  Garlic Fresh lasan  1.00 lbs  
+  Garlic Fresh lasan  1.00 lbs  
+Coriander Leaves, (Kotmir, Cilantro)  8.00 bundles  
+Coriander Leaves, (Kotmir, Cilantro)  4.00 bundles  
+Chillies - Jalapeno  12.00 pcs  
+Chillies - Jalapeno  20.00 pcs  
+Chilles -Small Indian , Thai  2.00 lb  
+Chillies - Big Green  12.00 pcs  
+    Shan Chat Masala  1.00 packets  
+        Sesame seeds 400.00 gms  
+  Shan Karahi Masala  6.00 box  
+Shan Pau Bhaaji masala  2.00 packets  
+              Gundar  8.00 packets  
+             Raisins 400.00 gms  
+                 Gol  8.00 lbs  
+      Custard Powder  3.00 packets  
+       Green  Onions 40.00 bunches  
+ Bell Pepper - Green 10.00 pcs  
+ Bell Pepper - Green 10.00 pcs  
+Bell Pepper - Yellow 10.00 pcs  
+ Cauliflower (gobhi)  4.00 pcs  
+Eggplant - Mini (Baigan) 220.00 pcs  
+   Bell pepper - Red 10.00 pcs  
+         Wheat Flour 10.00 lbs  
+               Sooji  4.00 lbs  
+       Almond Flakes  2.00 lbs  
+   Daal - Akha Moong 10.00 lbs  
+       Dalia Roasted 400.00 gms  
+             Peanuts  3.00 lb  
+          Pistachios 400.00 gms  
+                Ghee  3.50 lbs  
+     Carrot and Peas 10.00 lbs  
+          Imli Paste  2.00 bottles  
+Maggie Coconut Powder  4.00 packets  
+    Milk Powder Nido  1.00 box  
+
+~~~~~~~~~~~~~~~~~~~ END ~~~~~~~~~~~~ 
