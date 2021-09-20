@@ -5,11 +5,6 @@ require ("header.php");
 //include('./print_details.php');
 require_once('./mysqli_connect.php');
 
-if(!(isset($_SESSION['username']))){
-		$_SESSION['msg'] = "Please log in first" ;
-		header('location: login.php');
-	}
-
 // Retrieve detail records
 $selectlist  = "SELECT i.ingredient_name, s.store_name, s.store_id,  d.qty, d.uom, i.isBulk, d.det_comment , m.comments ";
 $selectFrom  = " FROM recipe_master m, recipe_detail d, ingredient_master i, stores s ";
@@ -22,6 +17,10 @@ $selectWhere3 = " AND isBulk = 0 ";
 $bulkResults = "";
 $detResults ="";
 
+
+if(isset($_POST["mainmenu"])){
+	header('location: index.php');
+}
 
 
 if(isset($_POST["downloadFile"])){		
@@ -81,7 +80,7 @@ if(isset($_POST["downloadFile"])){
 
 				}
 				
-				fprintf($handle, "%20s %5s %s %s \n" ,   $row['ingredient_name'], $row['qty'], $row['uom'], $row['det_comment'] );
+				fprintf($handle, "%20s %5s %s\n" ,   $row['ingredient_name'], $row['qty'], $row['uom'] );
 				
 			}
 		}
@@ -104,7 +103,7 @@ if(isset($_POST["downloadFile"])){
 					//fprintf($handle, "%s \n" ,   "     Ingredient name   Qty Uom     Comments" );
 					//fprintf($handle, "%s \n" ,   "-------------------------------------------" );
 				}
-				fprintf($handle, "%20s %5s %s %s \n" ,   $row['ingredient_name'], $row['qty'], $row['uom'], $row['det_comment'] );
+				fprintf($handle, "%20s %5s %s\n" ,   $row['ingredient_name'], $row['qty'], $row['uom'] );
 			}
 		}
 		fprintf($handle, "\n%s \n" ,   "~~~~~~~~~~~~~~~~~~~ END ~~~~~~~~~~~~"   );
@@ -248,11 +247,12 @@ if(isset($_POST["viewFile"])) {
 
 <?php if (isset($_SESSION['msg'])): ?>
 	<div class="msg">
-		<?php  echo $_SESSION['msg']; //unset($_SESSION['msg']); ?>
+		<?php
+		echo $_SESSION['msg'];  
+		//unset($_SESSION['msg']);
+		?>
 	</div>
 <?php endif ?>
-
-
 <?php 
 	require ("footer.php");
 ?>

@@ -13,6 +13,7 @@
 	
 	$recipeId =$_SESSION['recipeId'];
 
+
 	// fetch the record to be updated
 	if ( isset($_GET['edit']) ) {
 		$recipeId = $_GET['edit'];
@@ -43,6 +44,8 @@
 
 	}
 
+	
+
 	if (isset($_GET['ingEdit'])) {
  
 		$ingredientId = $_GET['ingEdit'];
@@ -69,9 +72,6 @@
 				$price = $record['price'];
 			}
 
-
-
-
 		}
 		
 	}
@@ -89,12 +89,12 @@
 		</div>
 		<div class="col2">
 			<label for cookName> Cooks Name :</label>
-			<input type="text" name="cookName" value="<?php echo $cookName; ?>">
+			<input type="text" name="cookName" value="<?php echo $cookName; ?>"> 
 		</div>
 		<div class="col1">
 			<label for dateCooked>Date Cooking :</label>
 			<input  type="date" name="dateCooked" value="<?php echo $dateCooked; ?>"> 
-		</div>
+		</div> 
 		<div class="col2">
 			<label for > No Of People :</label>
 			<input  type="number" name="noOfPeople" value="<?php echo $noOfPeople; ?>">
@@ -142,13 +142,13 @@
 
 	<div class="buttonline">
 			<ul>
-				<li> <a  href="ing_list.php?addIng=<?php echo $recipeId; ?>">Quick Add </a> </li>
+				<li> <a  href="ing_add.php?addIng=<?php echo $recipeId; ?>">Quick Add </a> </li>
 
-				<li> <a  href="ing_list.php?addIng=<?php echo $recipeId; ?>">Add Defaults </a></li>
+				<li> <a  href="ing_add.php?addIng=<?php echo $recipeId; ?>">Add Defaults </a></li>
 				<!--
-				<li> <a  href="ing_list.php?addIng=<?php echo $recipeId; ?>">Show Price </a></li>
-				<li> <a  href="ing_list.php?addIng=<?php echo $recipeId; ?>">Show Details </a></li>
-				<li> <a  href="ing_list.php?addIng=<?php echo $recipeId; ?>">Hide Editbox </a></li>
+				<li> <a  href="ing_add.php?addIng=<?php echo $recipeId; ?>">Show Price </a></li>
+				<li> <a  href="ing_add.php?addIng=<?php echo $recipeId; ?>">Show Details </a></li>
+				<li> <a  href="ing_add.php?addIng=<?php echo $recipeId; ?>">Hide Editbox </a></li>
 			-->
 				
 			</ul>
@@ -158,7 +158,7 @@
 	<div >
 	<?php if (!empty($recipeId))  { ?>
 		<!-- This is the form to put in edit for ingredients -->
-		<form  class="editform" method="POST" action="./ingredients.php">
+		<form  class="editform" method="POST" action="./recipe_ing.php">
 
 			<input type="hidden" name="det_id" value="<?php echo $detId; ?>">  
 			<input type="hidden" name="recipe_id" value="<?php echo $recipeId; ?>">  
@@ -223,7 +223,7 @@
 									<a class="edit_btn" href="recipe_master.php?ingEdit=<?php echo $row['ingredient_id']; ?> &edit=<?php echo $recipeId; ?>">Edit</a>
 								</td>
 								<td>
-									<a class="del_btn" href="ingredients.php?del=<?php echo $row['det_id']; ?>">Delete</a>
+									<a class="del_btn" href="recipe_ing.php?del=<?php echo $row['det_id']; ?>">Delete</a>
 								</td>
 							</tr>
 						<?php } ?>

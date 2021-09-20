@@ -1,0 +1,58 @@
+To setup the project locally :
+Download xampp
+Start Apache and MySQL from the XAMPP Conteol panel
+Go to MySQL Admin  and create the databases that you require ( from backups)
+
+In the browser type "localhost/php_project/index.php
+
+
+File Structure
+index.php - Main screen, displays menu from header.php
+   Goto :
+        header.php
+		
+header.php - Shows top menu
+	Goto :
+		recipe_list.php
+		ing_master.php
+		print_form.php
+		admin.php (new)
+		user.php
+		logout.php
+		login.php
+		
+
+logout.php - 
+login.php - 
+recipe_list.php
+ing_master.php
+print_form.php
+admin.php (new)
+user.php
+
+
+Profiles defined :
+S - Superuser  - Can update profile and everything A can do
+A - admin  - Can change passwords, ... 
+G - Grocery person - Can see 2 months worth of data, can see print list
+C - cook can see all their recipes 
+
+Tables :
+user_master
+
+
+
+To start the project locally
+
+1. Start Xampp
+2. In that start Apache and MySQL
+3. In browser, type localhost/<dir>/index.php
+
+
+In header.php 
+1. we set the default values of how many days to show receipes for grocery person
+2. We also set the number of days to see for Admin ( def 90) since we dont want to retrieve all data
+
+
+Changes from Previous version :
+1. Ingredient category is requred. 

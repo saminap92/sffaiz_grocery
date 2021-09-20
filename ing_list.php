@@ -1,79 +1,68 @@
 <?php 
-	$title = "Ingredients List";
+
+	$title = "Ingredient List";
 	require ("header.php");
 	require_once('./mysqli_connect.php');
-
-	// Get all ingredients here
 	
-	$selectcols  = "Select store_name, cat_name,  ingredient_id, ingredient_name, default_uom   from ingredient_master m, stores s, categories c ";
-	$joinclause  = " where s.store_id =m.store_id and  c.cat_id = m.cat_id ";
-	$orderClause = " ORDER BY c.cat_id,  ingredient_name, store_name ";
+	$ingId = "";
+	$_SESSION['ingId'] = "";
 
-	$whereClause = " ";
+	
 
-	$fullQuery = $selectcols . $joinclause . $whereClause  . $orderClause;
-
-	$ing_array = mysqli_query($dbc, $fullQuery);
-
-	$storeName="IndianStore";
-	$recipeId = "";
+	if(!(isset($_SESSION['username']))){
+		$_SESSION['msg'] = "Please log in first" ;
+		header('location: login.php');
+	}
 
 ?>
 
 <?php if (isset($_SESSION['msg'])): ?>
 	<div class="msg">
 		<?php
-			echo $_SESSION['msg'];  
-			unset($_SESSION['msg']);
-		?>
+		echo $_SESSION['msg'];  
+		unset($_SESSION['msg']);
+		?>					
 	</div>
 <?php endif ?>
 
+<table>
+	<thead>
+		<tr>
+			
+			<th>Type</th>
+			<th>Ing  Name</th>
+			<th>Store </th>
+			<th>UOM</th>
+			<th >Action</th>
+			<th><a class="edit_btn" href="ing_master.php ?ingId=newIng">New Ingredient </a></th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php 
+			$sql_stmt = "Select ingredient_id, cat_name, ingredient_name,store_name,default_uom from ingredient_master m , categories c, stores s  where m.cat_id = c.cat_id and m.store_id = s.store_id order by c.cat_id, ingredient_name";
+			$results = mysqli_query($dbc, $sql_stmt );
 
-<!------------------------------------------------------------------->
-<!-------------------  Code for Quick Add --------------------------->
-<!------------------------------------------------------------------->
 
-
-<?php 
-	if (isset($_GET['addIng'])) {
-			$recipeId = $_GET['addIng'];
-	} ?>
-
-	<form action="ingredients.php" method="post">
-		<div>
-			<table>
+		    while ($row = mysqli_fetch_array($results)){ ?>    
+			<tr>
 				
-				<input type="hidden" name="recipe_id" value="<?php echo $recipeId; ?>">  
+				<td><?php echo $row['cat_name']; ?></td>
+				<td><?php echo $row['ingredient_name']; ?> </td>
+				<td><?php echo $row['store_name']; ?></td>
+				<td><?php echo $row['default_uom']; ?></td>
 				
-				<thead>
-						<tr>
-							<th colspan="2"> <input  class = "edit_btn" type="submit" /></th>
-							<th colspan="3" align = "right"><a class="edit_btn" href="recipe_master.php?edit=<?php echo $recipeId; ?>">Back to Recipes </a></th>
-						</tr>
-						<tr>
-							<th>Select</th>
-							<th>Type</th>
-							<th>Ingredient Name</th>
-							<th>UOM</th>
-						</tr>
-				</thead>
-				<tbody>
-					<?php while ($row = mysqli_fetch_array($ing_array)){ ?>
-							<tr>
-								<td> <input type="checkbox"  name="check_list[]" value="<?php echo $row['ingredient_id']; ?> "> </td>
-								<td><?php echo $row['cat_name']; ?> </td>
-								<td><?php echo $row['ingredient_name']; ?> </td>
-								<td><?php echo $row['default_uom']; ?> </td>
-							</tr>
-					<?php } ?>
-				</tbody>			
-			</table>
-		</div>		
-	</form>
-
-		
-	
+				
+				<td>
+					<a class="edit_btn" href="ing_master.php?edit=<?php echo $row['ingredient_name']; ?>">Edit</a>
+				</td>
+				<td>
+					<a class="del_btn" href="ing_master.php?del=<?php echo $row['ingredient_id']; ?>">Delete</a>
+				</td>
+			</tr>
+		<?php } ?>
+	</tbody>
+</table>
+			
 <?php 
 	require ("footer.php");
 ?>

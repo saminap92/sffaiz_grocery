@@ -17,6 +17,10 @@
 	$_SESSION['showMeat'] = "";
 	$_SESSION['showOthers'] = "";
 
+	if(!(isset($_SESSION['username']))){
+		$_SESSION['msg'] = "Please log in first" ;
+		header('location: login.php');
+	}
 
 ?>
 
@@ -29,7 +33,6 @@
 	</div>
 <?php endif ?>
 
-
 <table>
 	<thead>
 		<tr>
@@ -39,7 +42,7 @@
 			<th>Cooks Name</th>
 			
 			<th >Action</th>
-			<th><a class="edit_btn" href="recipe_master.php ?>">New Recipe </a></th>
+			<th><a class="edit_btn" href="recipe_master.php?>">New Recipe </a></th>
 		</tr>
 	</thead>
 	<tbody>

@@ -4,11 +4,14 @@
 	require ("header.php");
 	//include('./print_list.php');
 
+	if(!(isset($_SESSION['username']))){
+		$_SESSION['msg'] = "Please log in first" ;
+		header('location: login.php');
+	}
+
 	$fromDate = $_SESSION['fromDate'];
 	$toDate = $_SESSION['toDate'];
-	$printBulk = "";
-
-
+	$printBulk = "1";
 ?>
 
 <form method="POST" action="./print_list.php">
@@ -32,7 +35,7 @@
 	<div  class="input-group">
 		<button type="submit" name="viewFile" class="btn">View List</button> 
 		<button type="submit" name="downloadFile" class="btn">Create List File</button>
-		<a href="./grocery_list.txt" download="./grocery_list.txt" class = "btn"  style = "text-decoration: none;  padding: 10px;"> Download List</a>
+		<a href="./grocery_list.txt" download="./grocery_list.txt" class = "btn"  style = "text-decoration: none;  padding: 10px;"> Download List</a>	
 	</div>
 </form>
 

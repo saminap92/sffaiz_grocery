@@ -1,12 +1,13 @@
 <?php 
 
 	$title = "Data Entry for Recipe";
-
+	require_once ("header.php");
 	require_once('./mysqli_connect.php');
 
 	$recipeName     = '';
 	$noOfPeople   = '';
 	$cookName   ="";
+	$cookId = "0";
 	$dateCooked = "";
 	$foodType = "";
 	$isPublic = "";
@@ -20,11 +21,17 @@
 	$uom = "";
 	$det_edit_state = false;
 
-	if(isset($_POST['mainmenu'])){
-		header("location: recipe_list.php");
-	}
+	//if(isset($_POST['mainmenu'])){
+	//	header("location: recipe_list.php");
+	//}
 
-	
+	if(!(isset($_SESSION['username']))){
+		$_SESSION['msg'] = "Please log in first" ;
+		header('location: login.php');
+	}
+	$username = $_SESSION['username'];
+	$userId	  = $_SESSION['userId'];
+
 	
 	//  Get all the entered details here	
 	if(isset($_POST['save'])){
@@ -38,7 +45,7 @@
 		isset( $_POST['isPublic']) ? $isPublic = "1" : $isPublic = "0" ;
 
 
-		$query = "Insert into recipe_master (recipe_name, no_of_people ,cook_name, date_cooked,food_type, is_public, comments) values ('$recipeName', '$noOfPeople' , '$cookName', '$dateCooked' ,'$foodType', '$isPublic', '$comments' )";
+		$query = "Insert into recipe_master (recipe_name, no_of_people ,cook_name, date_cooked,food_type, is_public, comments, cook_id) values ('$recipeName', '$noOfPeople' , '$cookName', '$dateCooked' ,'$foodType', '$isPublic', '$comments', '$cookId' )";
 
 		//echo $query ;
 
@@ -82,6 +89,24 @@
 	if (isset($_GET['del'])) {
 		$recipeId = $_GET['del'];
 
+		//  Get old  details to log
+		$stmt = $dbc->prepare("SELECT  recipe_name, cook_name, cook_id, date_cooked from recipe_master where  recipe_id = ? " );
+
+		$stmt->bind_param("s", $recipeId);
+		$stmt->execute();
+		$stmt->bind_result( $recipeName ,$cookName, $cookId, $dateCooked);
+			
+		if($stmt->fetch()) {
+
+				$ingString = "recipeId :" . $recipeId . ",recipeName : " . $recipeName .  ", CookName :" . $cookName . ", CookId : " . $cookId . ", DateCooked : " . $dateCooked;
+
+				log_user($username .  " - Recipe Deleted. Prev values : " . $ingString . " \n");
+		}
+		$stmt->close();
+		//Add Log for recipe details here
+
+
+
 		$response = mysqli_query($dbc, "DELETE FROM recipe_master  WHERE recipe_id= '$recipeId'");
 		if($response) {
 			$response = mysqli_query($dbc, "DELETE FROM recipe_detail  WHERE recipe_id= '$recipeId'");
@@ -97,6 +122,32 @@
 	}
 	
 	// Retrieve records
-	$results = mysqli_query($dbc, "Select * from recipe_master order by date_cooked desc, cook_name ");
+	$userid = $_SESSION['userId'];
+	$sel_stmt = "Select * from recipe_master m ";
+	
+	
+	
+	if(strpbrk($_SESSION['userprofile'],"A")) {
+
+		$daysStr = '-' . $_SESSION['adminDays'] . 'days ' ;
+		$todate = date('Y-m-d', strtotime($daysStr));
+
+		$sel_stmt = $sel_stmt . " where date_cooked >= '$todate'  ";
+	}  
+	else if(strpbrk($_SESSION['userprofile'],"G")) {
+
+		$daysStr = '-' . $_SESSION['groceryDays'] . 'days ' ;
+		$todate = date('Y-m-d', strtotime($daysStr));
+
+		$sel_stmt = $sel_stmt . " where date_cooked >= '$todate'  ";
+	}  
+	else if(strpbrk($_SESSION['userprofile'],"C")) {
+		$sel_stmt = $sel_stmt . " , user_master f where f.user_id = m.cook_id   and m.cook_id = '$userid' ";
+	}  
+
+	$orderby_stmt = " order by date_cooked desc ";
+	$sql_stmt = $sel_stmt . $orderby_stmt;
+	
+	$results = mysqli_query($dbc, $sql_stmt );
 
  ?>

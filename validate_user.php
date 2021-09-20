@@ -15,26 +15,38 @@
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 
+		
+
+
 		echo "In Login";
+		echo $username;
+		echo $password;
+
+		
+
 		
 	    //  Prepare the query with LIKE  
 		
-		$stmt = $dbc->prepare("SELECT id,  firstname, lastname, address, password, phone  from user_crud where username = ?  and password = ? " )  OR 
-       die('Could not connect to MySQL : ' . mysqli_connect_error());
+		$stmt = $dbc->prepare("SELECT user_id,  firstname, lastname, email, password, phone, abbrev, profile  from user_master where username = ?  and password = ? " )  OR 
+       die('Could not connect to THIA  MySQL : ' . mysqli_connect_error());
        
 		$stmt->bind_param("ss", $username, $password);
 		$stmt->execute();
-		$stmt->bind_result($id, $firstname, $lastname, $address, $password, $phone );
+		$stmt->bind_result($userid, $firstname, $lastname, $email, $password, $phone, $abbrev, $profile );
 
 		if($stmt->fetch()) {
 				$edit_state = true;   // To get the  update button
 				$readonly = 'readonly';
 				$_SESSION['username']=$username;
-
+				$_SESSION['userprofile'] = $profile;
+				$_SESSION['userId'] = $userid;
+				
+				
 				
 				if(!empty($_POST["remember"])){
 					setcookie("username", $_POST["username"], time() + (60*60*24*7));
 					setcookie("password", $_POST["password"], time() + (60*60*24*7));
+					
 				}				
 				else
 				{
@@ -44,6 +56,7 @@
 					if(isset($_COOKIE["password"])){
 						setcookie("password", "");
 					}
+					
 				} 
 				header('location: index.php');
 		}

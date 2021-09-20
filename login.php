@@ -6,10 +6,12 @@
 	if(isset($_COOKIE['username']) and isset($_COOKIE['password'])) {
 		$username = $_COOKIE['username'];
 		$password = $_COOKIE['password'];
+		$_SESSION['showprofile']=true;
 	}
 	else {
 		$username = "";
 		$password = "";
+		
 	}
 	
 ?>
