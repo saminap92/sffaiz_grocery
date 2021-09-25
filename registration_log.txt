@@ -1,1 +1,22 @@
-Sun, Feb 14, 2021 07:02:45 pm UTC  musthusaini Mustafa Husaini New User 
+Mon, Sep 20, 2021 01:09:46 am CEST  test48 - Ingredients deleted : Ingredient_id :100,ingredient_name : Green Bell Peppertest,Store Id : 1,UOM :big bottle, Price :0 ,Comment : , isBulk : 0, Category : 0 
+Mon, Sep 20, 2021 03:09:26 am CEST  test48 - Ingredients upgraded. Prev values : Ingredient_id :22,ingredient_name : Birishta,Store Id : 6,UOM : , Price :0 ,Comment : , isBulk : 1, Category : 1 
+Mon, Sep 20, 2021 03:09:19 am CEST  test48 - Ingredients upgraded. Prev values : Ingredient_id :22,ingredient_name : Birishta,Store Id : 6,UOM :big can, Price :0 ,Comment : , isBulk : 1, Category : 1 
+Mon, Sep 20, 2021 06:09:52 am CEST  test48 - Ingredients deleted : Ingredient_id :106,ingredient_name : testvGreen Bell Pepper,Store Id : 1,UOM : , Price :0 ,Comment : , isBulk : 0, Category : 0, Added by : 1, Time added : 2021-09-19 20:59:56 
+Mon, Sep 20, 2021 06:09:03 am CEST  test48 - Ingredients upgraded. Prev values : Ingredient_id :103,ingredient_name : oil TEst,Store Id : 1,UOM :big bottle, Price :0 ,Comment : , isBulk : 0, Category : 0, Added by : , Time added : 2021-09-19 18:53:56 
+Mon, Sep 20, 2021 07:09:12 am CEST   - Recipe Deleted. Prev values : recipeId :223,recipeName : test delete, CookName :Murtazabhai Partapurwala, CookId : 0, DateCooked : 2021-09-19 
+Mon, Sep 20, 2021 07:09:15 am CEST   - Recipe Deleted. Prev values : recipeId :224,recipeName : test2 recepie del, CookName :Fatemaben Yamani, CookId : 0, DateCooked : 2021-09-19 
+Mon, Sep 20, 2021 07:09:24 am CEST  test48 - Recipe Deleted. Prev values : recipeId :225,recipeName : test 3 del, CookName :Mohammedbhai Khambaty, CookId : 0, DateCooked : 2021-09-16 
+Fri, Sep 24, 2021 05:09:13 pm CEST  test48 - Recipe Deleted. Prev values : recipeId :222,recipeName : test, CookName :Rashidaben  Badri, CookId : 0, DateCooked : 2021-08-25 
+Fri, Sep 24, 2021 05:09:17 pm CEST  test48 - Recipe Deleted. Prev values : recipeId :226,recipeName : test, CookName :Rashidaben  Badri, CookId : 0, DateCooked : 2021-08-25 
+Fri, Sep 24, 2021 05:09:24 pm CEST  test48 - Recipe Deleted. Prev values : recipeId :227,recipeName : test, CookName :Rashidaben  Badri, CookId : 0, DateCooked : 2021-08-25 
+Sat, Sep 25, 2021 01:09:16 pm CEST  test48 - Recipe Deleted. Prev values : recipeId :235,recipeName : test Copy, CookName :Rashidaben  Badri, CookId : 0, DateCooked : 2021-09-29 
+Sat, Sep 25, 2021 01:09:58 pm CEST  test48 - Recipe Deleted. Prev values : recipeId :236,recipeName : Copy -test Copy, CookName :Rashidaben  Badri, CookId : 0, DateCooked : 2021-09-28 
+Sat, Sep 25, 2021 01:09:15 pm CEST  test48 - Recipe Deleted. Prev values : recipeId :238,recipeName : Copy- Copy -test Copy, CookName :Rashidaben  Badri, CookId : 0, DateCooked : 2021-09-30 
+Sat, Sep 25, 2021 01:09:15 pm CEST  test48 - Recipe Deleted. Prev values : recipeId :237,recipeName : Copy -test Copy, CookName :Rashidaben  Badri, CookId : 0, DateCooked : 2021-09-29 
+Sat, Sep 25, 2021 01:09:17 pm CEST  test48 - Recipe Deleted. Prev values : recipeId :239,recipeName : Copy- Copy- Copy -test Copy, CookName :Rashidaben  Badri, CookId : 0, DateCooked : 2021-09-29 
+Sat, Sep 25, 2021 01:09:32 pm CEST  test48 - Recipe Deleted. Prev values : recipeId :240,recipeName : Copy- test Copy, CookName :Rashidaben  Badri, CookId : 0, DateCooked : 2021-09-28 
+Sat, Sep 25, 2021 01:09:57 pm CEST  test48 - Recipe Deleted. Prev values : recipeId :241,recipeName : Copy- test Copy, CookName :Rashidaben  Badri, CookId : 0, DateCooked : 2021-09-29 
+Sat, Sep 25, 2021 01:09:08 pm CEST  test48 - Recipe Deleted. Prev values : recipeId :242,recipeName : Copy- test Copy, CookName :Rashidaben  Badri, CookId : 0, DateCooked : 2021-09-28 
+Sat, Sep 25, 2021 01:09:15 pm CEST  test48 - Recipe Deleted. Prev values : recipeId :243,recipeName : Copy- test Copy, CookName :Rashidaben  Badri, CookId : 0, DateCooked : 2021-09-29 
+Sat, Sep 25, 2021 01:09:27 pm CEST  test48 - Recipe Deleted. Prev values : recipeId :244,recipeName : Copy- test Copy, CookName :Rashidaben  Badri, CookId : 0, DateCooked : 2021-09-29 
+Sat, Sep 25, 2021 01:09:01 pm CEST  test48 - Recipe Deleted. Prev values : recipeId :245,recipeName : Copy- test Copy, CookName :Rashidaben  Badri, CookId : 0, DateCooked : 2021-09-27 

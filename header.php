@@ -11,8 +11,13 @@
 			session_start();
 
 			/*  Setting all Session variables here in the begining  */
-			$_SESSION['fromDate'] = "";
-			$_SESSION['toDate'] = "";
+			if(!(isset($_SESSION['fromDate'])))
+				$_SESSION['fromDate'] = "";
+			if(!(isset($_SESSION['toDate'])))
+				$_SESSION['toDate'] = "";
+			if(!(isset($_SESSION['copymenu'])))
+				$_SESSION['copymenu'] = "";
+
 			$_SESSION['groceryDays'] = "40";
 			$_SESSION['adminDays'] = "90";
 			$_SESSION['usertype'] = "currentuser";
@@ -30,7 +35,7 @@
 
 			}
 		?>
-
+		
 	</head>
 	<body>
 		<div id="container" >
@@ -38,6 +43,7 @@
 				<a href="index.php"><img src="images/ingredientspng.png" alt="Faiz Ingredients" ></a>
 			</header>
 			<nav>
+					<a href="index.php"> Home </a> &nbsp; &nbsp;
 					<a href="recipe_list.php"> Recipes </a> &nbsp; &nbsp;
 					<a href="ing_list.php"> Ingredients </a> &nbsp; &nbsp; 
 					<?php 

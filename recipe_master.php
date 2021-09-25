@@ -13,6 +13,51 @@
 	
 	$recipeId =$_SESSION['recipeId'];
 
+	// fetch the menu to be copied
+
+	if(isset($_POST['copyMenu'])){
+
+
+		$recipeId    = $_POST['recipeId'];
+		$toDate      = $_POST['toDate'];
+		$newRecipeId = "";
+		
+		$query = "Insert into recipe_master (recipe_name, no_of_people,  cook_name, cook_id, date_cooked, food_type, is_public, comments)  select  concat('Copy- ',  recipe_name), no_of_people,  cook_name, cook_id, '". $toDate . "', food_type, is_public, comments from recipe_master where recipe_id = " . $recipeId;
+
+		//echo $query ;
+		//exit();
+
+		$response = mysqli_query($dbc, $query);
+		if($response) {
+			$newRecipeId = mysqli_insert_id($dbc);
+			echo $newRecipeId;
+			$_SESSION['recipeId'] = $newRecipeId;
+
+			$_SESSION['msg'] = "Record saved";
+			$query =  "Insert into recipe_detail ( recipe_id,  ingredient_id,  qty, uom, price, det_comment)  Select $newRecipeId,  ingredient_id,  qty, uom, price, det_comment from recipe_detail  where recipe_id = $recipeId" ;
+
+			//echo $query ;
+			//exit();
+
+			$response = mysqli_query($dbc, $query);
+			if($response) {
+			
+				$_SESSION['msg'] = "Record saved";
+			}
+			else {
+				echo 'Could not add a record.';
+				echo mysqli_error($dbc);
+			}
+
+			header("location: recipe_master.php?edit=$newRecipeId");
+		}
+		else {
+			echo 'Could not add a record.';
+			echo mysqli_error($dbc);
+		}
+	}
+		
+
 
 	// fetch the record to be updated
 	if ( isset($_GET['edit']) ) {
@@ -130,10 +175,14 @@
 		<?php if ($edit_state == false): ?>
 			<button type="submit" name="save" class="btn">Save</button>
 		<?php else: ?>
-				<button type="submit" name="update" class="btn">Update</button>
-		<?php endif ?>
-		<!--<button type="submit" name="mainmenu" class="btn"> Main Menu</button>
-		<button type="details" name="details" class="btn">Details</button> -->
+			<button type="submit" name="update" class="btn">Update</button>
+		<?php endif ;
+
+		// Setup variables for the copy menu
+		$_SESSION['fromDate'] = $dateCooked;
+		$_SESSION['copymenu'] = $recipeId;
+		?>
+		<a class="btn" href="recipe_copy.php">Copy Menu</a>
 	</div>
 
 </form>
@@ -230,6 +279,8 @@
 					<?php } ?>
 				</tbody>
 		</table>
+
+
 		<!-- This is where the messages will show -->
 		<?php if (isset($_SESSION['msg'])): ?>
 			<div class="msg">
@@ -240,8 +291,6 @@
 			</div>
 		<?php endif ?>
 </div>
-
-
 
 
 <?php  } ?>

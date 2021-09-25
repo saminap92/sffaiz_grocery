@@ -21,9 +21,6 @@
 	$uom = "";
 	$det_edit_state = false;
 
-	//if(isset($_POST['mainmenu'])){
-	//	header("location: recipe_list.php");
-	//}
 
 	if(!(isset($_SESSION['username']))){
 		$_SESSION['msg'] = "Please log in first" ;
@@ -32,7 +29,8 @@
 	$username = $_SESSION['username'];
 	$userId	  = $_SESSION['userId'];
 
-	
+
+
 	//  Get all the entered details here	
 	if(isset($_POST['save'])){
 
@@ -121,12 +119,14 @@
 		}
 	}
 	
-	// Retrieve records
+	//////// Retrieve records
 	$userid = $_SESSION['userId'];
 	$sel_stmt = "Select * from recipe_master m ";
 	
-	
-	
+	//
+	///// Set the condition based on the user profile
+	//
+
 	if(strpbrk($_SESSION['userprofile'],"A")) {
 
 		$daysStr = '-' . $_SESSION['adminDays'] . 'days ' ;

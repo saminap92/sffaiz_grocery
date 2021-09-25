@@ -34,7 +34,7 @@
 			<th>Store </th>
 			<th>UOM</th>
 			<th >Action</th>
-			<th><a class="edit_btn" href="ing_master.php ?ingId=newIng">New Ingredient </a></th>
+			<th><a class="edit_btn" href="ing_master.php?ingId=newIng">New Ingredient </a></th>
 		</tr>
 	</thead>
 	<tbody>
