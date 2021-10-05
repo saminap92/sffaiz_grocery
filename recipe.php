@@ -36,14 +36,14 @@
 
 		$recipeName     = $_POST['recipeName'];
 		$noOfPeople  = $_POST['noOfPeople'];
-		$cookName  = $_POST['cookName'];
+		$cookId     = $_POST['cookId'];
 		$dateCooked  = $_POST['dateCooked'];
-		$foodType  = $_POST['foodType'];
+		//$foodType  = $_POST['foodType'];
 		$comments  = $_POST['comments'];
 		isset( $_POST['isPublic']) ? $isPublic = "1" : $isPublic = "0" ;
 
 
-		$query = "Insert into recipe_master (recipe_name, no_of_people ,cook_name, date_cooked,food_type, is_public, comments, cook_id) values ('$recipeName', '$noOfPeople' , '$cookName', '$dateCooked' ,'$foodType', '$isPublic', '$comments', '$cookId' )";
+		$query = "Insert into recipe_master (recipe_name, no_of_people ,cook_id, date_cooked,food_type, is_public, comments) values ('$recipeName', '$noOfPeople' , '$cookId', '$dateCooked' ,'$foodType', '$isPublic', '$comments' )";
 
 		//echo $query ;
 
@@ -66,13 +66,13 @@
 		$recipeName    = mysqli_real_escape_string($dbc, $_POST['recipeName']);
 		$noOfPeople = mysqli_real_escape_string($dbc, $_POST['noOfPeople']);
 		$recipeId      = mysqli_real_escape_string($dbc, $_POST['recipe_id']);
-		$cookName  = $_POST['cookName'];
+		$cookId  = $_POST['cookId'];
 		$dateCooked  = $_POST['dateCooked'];
 		$foodType  = $_POST['foodType'];
 		isset( $_POST['isPublic']) ? $isPublic = "1" : $isPublic = "0" ;
 		$comments  = $_POST['comments'];
 
-		$response = mysqli_query($dbc, "UPDATE recipe_master SET recipe_name = '$recipeName', no_of_people = '$noOfPeople',  cook_name = '$cookName', date_cooked = '$dateCooked', food_type = '$foodType', is_public = '$isPublic', comments = '$comments' WHERE recipe_id= '$recipeId' "); 
+		$response = mysqli_query($dbc, "UPDATE recipe_master SET recipe_name = '$recipeName', no_of_people = '$noOfPeople',  cook_id = '$cookId', date_cooked = '$dateCooked', food_type = '$foodType', is_public = '$isPublic', comments = '$comments' WHERE recipe_id= '$recipeId' "); 
 
 		if($response) {
 			$_SESSION['msg'] = "Record updated";
@@ -88,15 +88,15 @@
 		$recipeId = $_GET['del'];
 
 		//  Get old  details to log
-		$stmt = $dbc->prepare("SELECT  recipe_name, cook_name, cook_id, date_cooked from recipe_master where  recipe_id = ? " );
+		$stmt = $dbc->prepare("SELECT  recipe_name, cook_id, date_cooked from recipe_master where  recipe_id = ? " );
 
 		$stmt->bind_param("s", $recipeId);
 		$stmt->execute();
-		$stmt->bind_result( $recipeName ,$cookName, $cookId, $dateCooked);
+		$stmt->bind_result( $recipeName, $cookId, $dateCooked);
 			
 		if($stmt->fetch()) {
 
-				$ingString = "recipeId :" . $recipeId . ",recipeName : " . $recipeName .  ", CookName :" . $cookName . ", CookId : " . $cookId . ", DateCooked : " . $dateCooked;
+				$ingString = "recipeId :" . $recipeId . ",recipeName : " . $recipeName .   ", CookId : " . $cookId . ", DateCooked : " . $dateCooked;
 
 				log_user($username .  " - Recipe Deleted. Prev values : " . $ingString . " \n");
 		}

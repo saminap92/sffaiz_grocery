@@ -49,9 +49,10 @@
 		<?php while ($row = mysqli_fetch_array($results)){ ?>    
 			<tr>
 				
+				<?php $cookname = $row['firstname'] . ' ' . $row['lastname'] ?>
 				<td><?php echo $row['date_cooked']; ?></td>
 				<td><?php echo $row['recipe_name']; ?> </td>
-				<td><?php echo $row['cook_name']; ?></td>
+				<td><?php echo $cookname; ?></td>
 				
 				
 				<td>

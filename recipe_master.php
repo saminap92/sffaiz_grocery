@@ -22,7 +22,7 @@
 		$toDate      = $_POST['toDate'];
 		$newRecipeId = "";
 		
-		$query = "Insert into recipe_master (recipe_name, no_of_people,  cook_name, cook_id, date_cooked, food_type, is_public, comments)  select  concat('Copy- ',  recipe_name), no_of_people,  cook_name, cook_id, '". $toDate . "', food_type, is_public, comments from recipe_master where recipe_id = " . $recipeId;
+		$query = "Insert into recipe_master (recipe_name, no_of_people, cook_id, date_cooked, food_type, is_public, comments)  select  concat('Copy- ',  recipe_name), no_of_people,  cook_id, '". $toDate . "', food_type, is_public, comments from recipe_master where recipe_id = " . $recipeId;
 
 		//echo $query ;
 		//exit();
@@ -65,11 +65,11 @@
 		
 		$edit_state = true;   // To get the  update button
 
-		$rec = mysqli_query($dbc, "SELECT recipe_name, no_of_people, recipe_id, cook_name, date_cooked, food_type, is_public, comments  from recipe_master where recipe_id =$recipeId");
+		$rec = mysqli_query($dbc, "SELECT recipe_name, no_of_people, recipe_id, cook_id, date_cooked, food_type, is_public, comments  from recipe_master where recipe_id =$recipeId");
 		$record = mysqli_fetch_array($rec);
 		$recipeName = $record['recipe_name'];
 		$noOfPeople = $record['no_of_people'];
-		$cookName   = $record['cook_name'];
+		$cookId     = $record['cook_id'];
 		$dateCooked = $record['date_cooked'];
 		$foodType   = $record['food_type'];
 		$isPublic   = $record['is_public'];
@@ -124,18 +124,37 @@
 ?>
 <div>
 	<form  method="POST" action="./recipe.php">
-	<div class="input-group">
+		<div class="input-group">
 
-		<input type="hidden" name="recipe_id" value="<?php echo $recipeId; ?>">  
+			<input type="hidden" name="recipe_id" value="<?php echo $recipeId; ?>">  
 	
-		<div class="col1">
-			<label for recipeName > Recipe Name :</label>
-			<input type="text" name="recipeName" value="<?php echo $recipeName; ?>"> 
-		</div>
-		<div class="col2">
-			<label for cookName> Cooks Name :</label>
-			<input type="text" name="cookName" value="<?php echo $cookName; ?>"> 
-		</div>
+			<div class="col1">
+				<label for recipeName > Recipe Name :</label>
+				<input type="text" name="recipeName" value="<?php echo $recipeName; ?>"> 
+			</div>
+			<div class="col2">
+				<label for cookId> Cooks Name :</label>
+				<select   name="cookId" id="cookId" value="<?php echo $cookId; ?>">
+					<option value = "0"     <?php echo ($cookId == '' )?"   selected":"" ?> >                        </option>
+					<option value = "2"     <?php echo ($cookId == '2')?"   selected":"" ?> >Alefiyaben Ferozpurwala </option>
+					<option value = "3"     <?php echo ($cookId == '3')?"   selected":"" ?> >Sk Alibhai Ferozpurwala </option>
+					<option value = "24"     <?php echo ($cookId == '24')?" selected":"" ?> >Alifiyaben Kagalwala    </option>
+					<option value = "6"     <?php echo ($cookId == '6')?"   selected":"" ?> >Fakheraben Shahdawala   </option>
+					<option value = "23"    <?php echo ($cookId == '23')?"  selected":"" ?> >Fatemaben Pedhiwala     </option>
+					<option value = "27"     <?php echo ($cookId == '27')?" selected":"" ?> >Fatemaben Sehorwala     </option>
+					<option value = "4"     <?php echo ($cookId == '4')?"   selected":"" ?> >Fatemaben Shahdawala    </option>
+					<option value = "22"    <?php echo ($cookId == '22')?"  selected":"" ?> >Fatemaben Yamani        </option>
+					<option value = "8"     <?php echo ($cookId == '8')?"   selected":"" ?> >Insiyaben Bohri         </option>
+					<option value = "30"     <?php echo ($cookId == '30')?" selected":"" ?> >Mohammedbhai Khambaty   </option>
+					<option value = "9"      <?php echo ($cookId == '9')?"  selected":"" ?> >Muniraben Ranijiwala    </option>
+					<option value = "25"     <?php echo ($cookId == '25')?" selected":"" ?> >Murtazabhai Partapurwala </option>
+					<option value = "29"     <?php echo ($cookId == '29')?" selected":"" ?> >Mustansirbhai Mamawala   </option>
+					<option value = "5"     <?php echo ($cookId == '5')?"   selected":"" ?> >Rashidaben Badri         </option>
+					<option value = "28"     <?php echo ($cookId == '28')?" selected":"" ?> >Sk Shabbirbhai Shahdawala </option>
+					<option value = "31"     <?php echo ($cookId == '31')?" selected":"" ?> >Yusufbhai Asgharali      </option>
+					<option value = "32"     <?php echo ($cookId == '32')?" selected":"" ?> >Other cook                </option>
+				</select>	
+			</div>
 		<div class="col1">
 			<label for dateCooked>Date Cooking :</label>
 			<input  type="date" name="dateCooked" value="<?php echo $dateCooked; ?>"> 
@@ -145,61 +164,34 @@
 			<input  type="number" name="noOfPeople" value="<?php echo $noOfPeople; ?>">
 		</div>
 
-	</div>
-	<!-----------------------------
-	<div class="input-group">
-		<label for="reference">Food Type :</label>
-			<select   name="foodType" id="foodType" value="<?php echo $foodType; ?>">
-				<option value = "none"   <?php echo ($foodType == ''      )?"selected":"" ?> >       </option>
-				<option value = "Veg"    <?php echo ($foodType == 'Veg'   )?"selected":"" ?> >Veg    </option>
-				<option value = "NonVeg" <?php echo ($foodType == 'NonVeg')?"selected":"" ?> >NonVeg </option>
-				<option value = "Rice"   <?php echo ($foodType == 'Rice'  )?"selected":"" ?> >Rice   </option>
-				<option value = "Sweets" <?php echo ($foodType == 'Sweets')?"selected":"" ?> >Sweets </option>
-				<option value = "Other"  <?php echo ($foodType == 'Other' )?"selected":"" ?> >Other  </option>
-			</select>	
+		
+		<div>
+			<?php if ($edit_state == false): ?>
+				<button type="submit" name="save" class="btn">Save</button>
+			<?php else: ?>
+				<button type="submit" name="update" class="btn">Update</button>
+			<?php endif ;
 
-	<div class="input-group">
-			<label for="comments"  >Comments :</label>
-			<input type="text" name="comments" value="<?php echo $comments; ?>"> 
-	</div  >
-	<div >
-		<ul style="padding-left: 0">
-					<li><input  type="checkbox" id="isPublic"  name="isPublic" class="chkbx" value="<?php echo $isPublic; ?>" <?php echo ($isPublic==1 ? 'checked' : '');?> >Public ? </li>
-		</ul>
-	</div>
-	</div>
-	-->
+			// Setup variables for the copy menu
+			$_SESSION['fromDate'] = $dateCooked;
+			$_SESSION['copymenu'] = $recipeId;
+			?>
+			<a class="btn" href="recipe_copy.php">Copy Menu</a>
+		</div>
 
-	
-	<div class="input-group">
-		<?php if ($edit_state == false): ?>
-			<button type="submit" name="save" class="btn">Save</button>
-		<?php else: ?>
-			<button type="submit" name="update" class="btn">Update</button>
-		<?php endif ;
-
-		// Setup variables for the copy menu
-		$_SESSION['fromDate'] = $dateCooked;
-		$_SESSION['copymenu'] = $recipeId;
-		?>
-		<a class="btn" href="recipe_copy.php">Copy Menu</a>
-	</div>
-
-</form>
+	</form>
 </div> 
 
 
 	<div class="buttonline">
 			<ul>
 				<li> <a  href="ing_add.php?addIng=<?php echo $recipeId; ?>">Quick Add </a> </li>
-
 				<li> <a  href="ing_add.php?addIng=<?php echo $recipeId; ?>">Add Defaults </a></li>
 				<!--
 				<li> <a  href="ing_add.php?addIng=<?php echo $recipeId; ?>">Show Price </a></li>
 				<li> <a  href="ing_add.php?addIng=<?php echo $recipeId; ?>">Show Details </a></li>
 				<li> <a  href="ing_add.php?addIng=<?php echo $recipeId; ?>">Hide Editbox </a></li>
-			-->
-				
+			-->				
 			</ul>
 	</div> 
 	<br>
@@ -291,6 +283,33 @@
 			</div>
 		<?php endif ?>
 </div>
+
+
+<!-----------------------------
+	<div class="input-group">
+		<label for="reference">Food Type :</label>
+			<select   name="foodType" id="foodType" value="<?php echo $foodType; ?>">
+				<option value = "none"   <?php echo ($foodType == ''      )?"selected":"" ?> >       </option>
+				<option value = "Veg"    <?php echo ($foodType == 'Veg'   )?"selected":"" ?> >Veg    </option>
+				<option value = "NonVeg" <?php echo ($foodType == 'NonVeg')?"selected":"" ?> >NonVeg </option>
+				<option value = "Rice"   <?php echo ($foodType == 'Rice'  )?"selected":"" ?> >Rice   </option>
+				<option value = "Sweets" <?php echo ($foodType == 'Sweets')?"selected":"" ?> >Sweets </option>
+				<option value = "Other"  <?php echo ($foodType == 'Other' )?"selected":"" ?> >Other  </option>
+			</select>	
+
+	<div class="input-group">
+			<label for="comments"  >Comments :</label>
+			<input type="text" name="comments" value="<?php echo $comments; ?>"> 
+	</div  >
+	<div >
+		<ul style="padding-left: 0">
+					<li><input  type="checkbox" id="isPublic"  name="isPublic" class="chkbx" value="<?php echo $isPublic; ?>" <?php echo ($isPublic==1 ? 'checked' : '');?> >Public ? </li>
+		</ul>
+	</div>
+	</div>
+	-->
+
+
 
 
 <?php  } ?>

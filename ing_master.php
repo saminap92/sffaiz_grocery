@@ -309,7 +309,7 @@
 						<option value = "7"  <?php echo ($catId == '7' )?"selected":"" ?> >Sauces   </option>
 						<option value = "8"  <?php echo ($catId == '8' )?"selected":"" ?> >Dairy    </option>
 						<option value = "9"  <?php echo ($catId == '9' )?"selected":"" ?> >Meat     </option>
-						<option value = "10" <?php echo ($catId == '99')?"selected":"" ?> >Others   </option>
+						<option value = "99" <?php echo ($catId == '99')?"selected":"" ?> >Others   </option>
 
 			</select>
 
